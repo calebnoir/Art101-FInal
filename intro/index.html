@@ -19,20 +19,31 @@
 
 	<script>
 		var typed = new Typed(".description", {
-			strings: [
-				"You're a college student at a house party.",
-				"The music is too loud and you start to feel anxious.",
-				"Your friends don't want to leave yet.",
-				"So, you go into one of the rooms and sit down at a desk to drink some water.",
-				"You're not interested in snooping initially,",
-				"but you are tempted to steal something as a consolation for how much this party sucked."
-			],
-			typeSpeed: 50,
-			backSpeed: 20,
-			loop: false
+		  strings: [
+			"You're a college student at a house party.",
+			"The music is too loud and you start to feel anxious.",
+			"Your friends don't want to leave yet.",
+			"So, you go into one of the rooms and sit down at a desk to drink some water.",
+			"You're not interested in snooping initially,",
+			"but you are tempted to steal something as a consolation for how much this party sucked."
+		  ],
+		  typeSpeed: 50,
+		  backSpeed: 20,
+		  loop: false,
+		  //when the above code is exexcuted, 'timer' started to fade out button
+		  onComplete: function () {
+			setTimeout(function () {
+			  var startButton = $(".button-container button"); //jQuery command
+			  startButton.fadeTo(450, 1); //45 seconds to complete 
+			}, 1000); //sets delay 
+		  }
 		});
-		
-	</script>
+	  </script>
+	  
+	  
+	  
+	  
+	  
 <!--these divisions and breaks are so that the button doesn't move with the text-->
 	<br>
 	<br>
@@ -44,4 +55,5 @@
 	</div>
 </div>
 </body>
+</html>
 </html>
