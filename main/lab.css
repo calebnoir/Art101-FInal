@@ -34,3 +34,20 @@ span{
     left: 50%;
     transform: translateX(-50%);
 }
+
+/* Single button open and close */
+
+.popup{
+    visibility: hidden;
+  }
+  
+  .open-popup{
+   visibility: visible;
+  }
+  
+  .popup-img{
+   width: 50%;
+   height: auto;
+   align-items: center;
+  } 
+
