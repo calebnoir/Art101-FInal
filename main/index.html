@@ -38,7 +38,7 @@
 	<img class="glove" src="desk-img/3_Glove.png" alt="Glove" onclick = "changeImageGlove()">
 	<img class="hair-dye" src="desk-img/3_ManicPanic.png" alt="Dye" onclick = "changeImageHairDye()">
 	<img class="card" src="desk-img/4_Card.png" alt="Card" onclick = "changeImageCard()">
-	<img class="key" src="desk-img/5_Key.png" alt="Key">
+	<img class="key" src="desk-img/5_Key.png" alt="Key" onclick = "changeImageKey()">
 	<img class="obituary" src="desk-img/4_Obitiary.png" alt="Obituary" onclick = "changeImageObituary()">
 
 	<!--adding audio...-->
@@ -86,11 +86,16 @@
 		}
 	  
 		function changeImageObituary() {
-		  var obituaryImg = document.querySelector('.obituary');
-		  obituaryImg.src = 'desk-img/4_Obitiary_Black.jpg';
-		  obituaryImg.classList.add('fullscreen-image');
-		  showRedArrow(); // Show the red arrow
+			var obituaryImg = document.querySelector('.obituary');
+			obituaryImg.src = 'desk-img/4_Obitiary_Black.jpg';
+			obituaryImg.classList.add('fullscreen-image');
+			
+
+		
+			
+			showRedArrow(); // Show the red arrow
 		}
+
 	  
 		function showRedArrow() {
 		  var redArrow = document.querySelector('.red-arrow');
@@ -112,7 +117,10 @@
 	  
 		function goBackToMain() {
 			window.open('../main/index.html', '_self');
+			
 		}
+
+
 
 	  </script>
 	  
