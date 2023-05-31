@@ -1,28 +1,112 @@
 <!DOCTYPE html>
-<!-- load jQuery library to make javascript easier (must be above our lab js)-->
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<!-- Link to javascript file - DEFER waits until all elements are rendered -->
-<script type="text/javascript" src="/project.js" DEFER></script>
 <html lang="en">
 
 <head>
 	<meta name="UTF-8" content="width=device-width, initial-scale=1.0">
 	<title>Art101-Final</title>
 	<link rel="stylesheet" type="text/css" href="lab.css">
+	<style>
+		.fullscreen-image {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100vw;
+			height: 100vh;
+			object-fit: cover;
+			z-index: 9999;
+		}
+	</style>
 </head>
 
 <body>
-	<!--this is where the game goes-->
-	<img class="desk_closed" img src="deskclosed.png" alt="Desk Closed">
-	<img class="napkin" img src="desk-img/1_Napkin1.png" alt="Napkins">
-	<img class = "sheath" img src = "desk-img/2_Sheath1.png" alt = "Sheath">
-	<img class = "glove" img src = "desk-img/3_Glove.png" alt = "Glove">
-	<img class = "hair-dye" img src = "desk-img/3_ManicPanic.png" alt = "Dye">
-	<img class = "card" img src = "desk-img/4_Card.png" alt = "Card">
-	<img class = "key" img src = "desk-img/5_Key.png" alt = "Key">
-	<img class = "obituary" img src = "desk-img/4_Obitiary.png" alt = "Obituary">
-	
+	<audio id="background_music" src="/home/squash/Art101-FInal/main/let-the-mystery-unfold-122118.mp3" loop></audio>
 
+	<!--this is where the game goes-->
+	<img class="desk_closed" src="deskclosed.png" alt="Desk Closed">
+	<img class="napkin" src="desk-img/1_Napkin1.png" alt="Napkins" onclick="changeImage()">
+	<img class="sheath" src="desk-img/2_Sheath1.png" alt="Sheath" onclick="changeImageSheath()">>
+	<img class="glove" src="desk-img/3_Glove.png" alt="Glove" onclick = "changeImageGlove()">
+	<img class="hair-dye" src="desk-img/3_ManicPanic.png" alt="Dye" onclick = "changeImageHairDye()">
+	<img class="card" src="desk-img/4_Card.png" alt="Card" onclick = "changeImageCard()">
+	<img class="key" src="desk-img/5_Key.png" alt="Key">
+	<img class="obituary" src="desk-img/4_Obitiary.png" alt="Obituary" onclick = "changeImageObituary()">
+
+	<!--adding audio and image functions...-->
+	<script>
+		function changeImage() {
+			var napkinImg = document.querySelector('.napkin');
+			napkinImg.src = 'desk-img/1_Napkin1_Black.jpg';
+			napkinImg.classList.add('fullscreen-image');
+		}
+
+		function changeImageSheath() {
+			var sheathImg = document.querySelector('.sheath');
+			sheathImg.src = 'desk-img/2_Sheath1_Black.jpg';
+			sheathImg.classList.add('fullscreen-image');
+		}
+
+		function changeImageGlove() {
+			var napkinImg = document.querySelector('.glove');
+			napkinImg.src = 'desk-img/3_Glove_Black.jpg';
+			napkinImg.classList.add('fullscreen-image');
+		}
+
+		function changeImageHairDye() {
+			var napkinImg = document.querySelector('.hair-dye');
+			napkinImg.src = 'desk-img/3_ManicPanic_Black.jpg';
+			napkinImg.classList.add('fullscreen-image');
+		}
+
+		function changeImageCard() {
+			var napkinImg = document.querySelector('.card');
+			napkinImg.src = 'desk-img/4_Card_Black.jpg';
+			napkinImg.classList.add('fullscreen-image');
+		}
+
+
+		// may need to make seperate link for this 
+		//function changeImageKey() {
+		//	var napkinImg = document.querySelector('.key');
+		//	napkinImg.src = 'desk-img/1_Napkin1_Black.jpg';
+		//	napkinImg.classList.add('fullscreen-image');
+		//}
+
+		function changeImageObituary() {
+			var napkinImg = document.querySelector('.obituary');
+			napkinImg.src = 'desk-img/4_Obitiary_Black.jpg';
+			napkinImg.classList.add('fullscreen-image');
+		}
+
+
+		function toggleMute() {
+			var button = document.getElementById("mute-img");
+			var audio = document.getElementById("background_music");
+
+			if (audio.paused) {
+				audio.play(); // Play
+				button.src = "audio.png"; // Change button 
+			} else {
+				audio.pause(); // Pause 
+				button.src = "enable-sound.png"; // Change the button 
+			}
+		}
+
+		function toggleMuteButton() {
+			var button = document.getElementById("mute-button");
+
+			if (button.getAttribute("src") === "enable-sound.png") {
+				button.setAttribute("src", "audio.png");
+			} else {
+				button.setAttribute("src", "enable-sound.png");
+			}
+		}
+	</script>
+
+	<br>
+	<br>
+
+	<div class="mute-button">
+		<img id="mute-img" src="enable-sound.png" onclick="toggleMute()" alt="Mute Button">
 	</div>
 </body>
 
