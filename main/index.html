@@ -24,6 +24,9 @@
 			object-fit: cover;
 			z-index: 9999;
 		}
+
+		
+
 	</style>
 </head>
 
@@ -36,8 +39,7 @@
 	<img class="napkin" src="desk-img/1_Napkin1.png" alt="Napkins" onclick="changeImage()">
 	<img class="sheath" src="desk-img/2_Sheath1.png" alt="Sheath" onclick="changeImageSheath()">>
 	<img class="glove" src="desk-img/3_Glove.png" alt="Glove" onclick = "changeImageGlove()">
-	<img class="hair-dye" src="desk-img/3_ManicPanic.png" alt="Dye" onclick = "changeImageHairDye()">
-	<img class="card" src="desk-img/4_Card.png" alt="Card" onclick = "changeImageCard()">
+	
 	<img class="key" src="desk-img/5_Key.png" alt="Key" onclick = "changeImageKey()">
 	<img class="obituary" src="desk-img/4_Obitiary.png" alt="Obituary" onclick = "changeImageObituary()">
 
@@ -64,26 +66,22 @@
 		  showRedArrow(); // Show the red arrow
 		}
 	  
-		function changeImageHairDye() {
-		  var dyeImg = document.querySelector('.hair-dye');
-		  dyeImg.src = 'desk-img/3_ManicPanic_Black.jpg';
-		  dyeImg.classList.add('fullscreen-image');
-		  showRedArrow(); // Show the red arrow
-		}
-	  
-		function changeImageCard() {
-		  var cardImg = document.querySelector('.card');
-		  cardImg.src = 'desk-img/4_Card_Black.jpg';
-		  cardImg.classList.add('fullscreen-image');
-		  showRedArrow(); // Show the red arrow
-		}
+		
 	  
 		function changeImageKey() {
-		  var keyImg = document.querySelector('.key');
-		  keyImg.src = 'desk-img/5_Key_Black.jpg';
-		  keyImg.classList.add('fullscreen-image');
-		  showRedArrow(); // Show the red arrow
+			var keyImg = document.querySelector('.key');
+			keyImg.src = 'desk-img/5_Key_Black.jpg';
+			keyImg.classList.add('fullscreen-image');
+			showOpenButton(); // Show the "Open" button
+			showRedArrow();
+			}
+
+		function showOpenButton() {
+			var openButton = document.querySelector('.open-button');
+			openButton.style.display = 'block'; // Show the "Open" button
 		}
+
+
 	  
 		function changeImageObituary() {
 			var obituaryImg = document.querySelector('.obituary');
@@ -120,6 +118,12 @@
 			
 		}
 
+		function openDrawer(){
+
+			window.location.href = "../desk_open/index.html";
+
+		}
+
 
 
 	  </script>
@@ -127,6 +131,10 @@
 
 	<br>
 	<br>
+
+	<div class="open-button">
+		<button id="openingButton" onclick="openDrawer()">Open</button>
+	</div>
 
 	<div class="red-arrow">
 		<img id="arrow" src="right-arrow.png" onclick="goBackToMain()">
@@ -139,3 +147,4 @@
 </body>
 
 </html>
+
