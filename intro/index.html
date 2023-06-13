@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="UTF-8" content="width=device-width, initial-scale=1.0">
+	<title>Art101-Final</title>
+	<link rel="stylesheet" type="text/css" href="lab.css">
+</head>
+<body>
+	<div id="intro"></div>
+	<div class="container">
+		<h1><span class="description"></span></h1>
+		<!-- Include the necessary scripts -->
+		<script src="path/to/howler.js"></script>
+		<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+		<script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+
+		<!-- Creating audio file object thing -->
+		<audio id="myAudio" src="mixkit-creaky-door-open-195.wav"></audio>
+		<audio id="creepySound" src="scary_dramatic_intro.wav"></audio>
+		<script>
+				
+				
+
+
+			var typed = new Typed(".description", {
+				strings: [
+					"You're a college student at a house party.",
+					"The music is too loud and you start to feel anxious.",
+					"Your friends don't want to leave yet.",
+					"So, you go into one of the rooms and sit down at a desk to drink some water.",
+					"You're not interested in snooping initially,",
+					"but you are tempted to steal something as a consolation for how much this party sucked."
+				],
+				typeSpeed: 50,
+				backSpeed: 20,
+				loop: false,
+
+				onComplete: function () {
+					setTimeout(function () {
+						var startButton = $(".button-container button");
+						startButton.fadeTo(450, 1);
+					}, 1000);
+				}
+			});
+
+			
+ 
+			// Function to play the audio and open the second page
+			function playAudio() {
+				const audio = document.getElementById("myAudio");
+				audio.play();
+
+				audio.onended = function () {
+					// Open the second page here
+					// main index.html moved here !!!!!!
+					// it will open the second page AFTER the sound plays
+					// or else the page will reload and audio will not play
+					window.location.href = "../main/index.html";
+				};
+			}
+
+			function playAudio2() {
+
+				//plays creepy sound audio
+				const audio = document.getElementById("creepySound");
+				audio.play();
+
+				//changes button to audio.png
+
+				var button = document.getElementById("mute-button");
+    			button.src = "speaker-xxl.png";
+
+				
+				
+			}
+
+			function toggleMute() {
+
+				var button = document.getElementById("mute-img");
+				var audio = document.getElementById("creepySound");
+
+			if (audio.paused) {
+				audio.play(); // Play
+				button.src = "speaker-xxl.png"; // Change button 
+			} else {
+				audio.pause(); // Pause 
+				button.src = "mute-xxl.png"; // Change the button 
+			}
+			}
+
+
+
+			// Function to toggle the mute button image
+			function toggleMuteButton() {
+				var button = document.getElementById("mute-button");
+
+				if (button.getAttribute("src") === "mute-xxl.png") {
+					button.setAttribute("src", "speaker-xxl.png");
+				} else {
+					button.setAttribute("src", "mute-xxl.png");
+				}
+			}
+		</script>
+
+		<br>
+		<br>
+		<div class="mute-button">
+			<img id="mute-img" src="mute-xxl.png" onclick="toggleMute()" alt="Mute Button">
+		  </div>
+		  
+		  
+		
+		<div class="button-container">
+			<button id="openingButton" onclick="playAudio()">Start</button>
+		</div>
+	</div>
+
+</body>
+</html>
+
