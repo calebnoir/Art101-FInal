@@ -15,13 +15,8 @@
 		<script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
 
 		<!-- Creating audio file object thing -->
-		<audio id="myAudio" src="mixkit-creaky-door-open-195.wav"></audio>
 		<audio id="creepySound" src="scary_dramatic_intro.wav"></audio>
 		<script>
-				
-				
-
-
 			var typed = new Typed(".description", {
 				strings: [
 					"You're a college student at a house party.",
@@ -43,52 +38,23 @@
 				}
 			});
 
-			
- 
-			// Function to play the audio and open the second page
-			function playAudio() {
-				const audio = document.getElementById("myAudio");
-				audio.play();
-
-				audio.onended = function () {
-					// Open the second page here
-					// main index.html moved here !!!!!!
-					// it will open the second page AFTER the sound plays
-					// or else the page will reload and audio will not play
-					window.location.href = "../main/index.html";
-				};
-			}
-
-			function playAudio2() {
-
-				//plays creepy sound audio
+			function playCreepySound() {
 				const audio = document.getElementById("creepySound");
 				audio.play();
-
-				//changes button to audio.png
-
-				var button = document.getElementById("mute-button");
-    			button.src = "speaker-xxl.png";
-
-				
-				
 			}
 
 			function toggleMute() {
-
 				var button = document.getElementById("mute-img");
 				var audio = document.getElementById("creepySound");
 
-			if (audio.paused) {
-				audio.play(); // Play
-				button.src = "speaker-xxl.png"; // Change button 
-			} else {
-				audio.pause(); // Pause 
-				button.src = "mute-xxl.png"; // Change the button 
+				if (audio.paused) {
+					audio.play(); // Play
+					button.src = "speaker-xxl.png"; // Change button 
+				} else {
+					audio.pause(); // Pause 
+					button.src = "mute-xxl.png"; // Change the button 
+				}
 			}
-			}
-
-
 
 			// Function to toggle the mute button image
 			function toggleMuteButton() {
@@ -100,21 +66,23 @@
 					button.setAttribute("src", "mute-xxl.png");
 				}
 			}
+
+			// Function to open the main page
+			function openMainPage() {
+				window.location.href = "../main/index.html";
+			}
 		</script>
 
 		<br>
 		<br>
 		<div class="mute-button">
 			<img id="mute-img" src="mute-xxl.png" onclick="toggleMute()" alt="Mute Button">
-		  </div>
-		  
-		  
-		
+		</div>
+
 		<div class="button-container">
-			<button id="openingButton" onclick="playAudio()">Start</button>
+			<button id="openingButton" onclick="openMainPage()">Start</button>
 		</div>
 	</div>
-
 </body>
 </html>
 
