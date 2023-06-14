@@ -17,7 +17,6 @@
             z-index: 9999;
         }
 
-
         .fullscreen-image {
             position: fixed;
             top: 0;
@@ -33,7 +32,7 @@
 <body>
     <audio id="background_music" src="let-the-mystery-unfold-122118.mp3" loop></audio>
 
-    <!--this is where the game goes-->
+    <!-- This is where the game goes -->
 
     <img class="desk_open" src="draweropen.png" alt="Desk Open">
 
@@ -42,11 +41,9 @@
     <img class="ketchup" src="1_Ketsup1.png" alt="ket" onclick="changeImageKetchup()">
     <img class="letteropen" src="2_LetterOpener.png" alt="letop" onclick="changeImageOpener()">
 
-
-    <!--adding audio...-->
+    <!-- Adding audio... -->
     <script>
-
-
+    
 
         function changeImageHairDye() {
             var dyeImg = document.querySelector('.hair-dye');
@@ -69,51 +66,54 @@
             showRedArrow(); // Show the red arrow
         }
 
-
         function changeImageOpener() {
             var openImg = document.querySelector('.letteropen');
             openImg.src = '2_LetterOpener_Black.jpg';
             openImg.classList.add('fullscreen-image');
-
-
-
-
             showRedArrow(); // Show the red arrow
         }
-
 
         function showRedArrow() {
             var redArrow = document.querySelector('.red-arrow');
             redArrow.style.display = 'block'; // Show the red arrow
         }
-
         function toggleMute() {
-            var button = document.getElementById('mute-img');
-            var audio = document.getElementById('background_music');
-
-            if (audio.paused) {
-                audio.play(); // Play
-                button.src = 'speaker-xxl.png'; // Change button
-            } else {
-                audio.pause(); // Pause
-                button.src = 'mute-xxl.png'; // Change the button
-            }
-        }
+		  var button = document.getElementById('mute-img');
+		  var audio = document.getElementById('background_music');
+	  
+		  if (audio.paused) {
+			audio.play(); // Play
+			button.src = 'speaker-xxl.png'; // Change button
+		  } else {
+			audio.pause(); // Pause
+			button.src = 'mute-xxl.png'; // Change the button
+		  }
+		}
 
         function goBackToMain() {
             window.open('../desk_open/index.html', '_self');
-
         }
 
         function openDrawer() {
-
             window.location.href = "../desk_open/index.html";
-
         }
-
-
-
     </script>
+
+    <br>
+    <br>
+
+    <div class="red-arrow">
+        <img id="arrow" src="right-arrow.png" onclick="goBackToMain()">
+    </div>
+
+    <div class="mute-button">
+        <img id="mute-img" src="mute-xxl.png" onclick="toggleMute()" alt="Mute Button">
+    </div>
+
+</body>
+
+</html>
+
 
 
     <br>
