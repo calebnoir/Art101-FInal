@@ -42,3 +42,9 @@
     height: 790px;
     position: relative;
 }
+.red-arrow{
+  width: 10px;
+  height: 10px;
+  position: fixed;
+
+}
